@@ -12,5 +12,6 @@ router.get('/sign-in',userController.Signin);
 
 console.log('user page accessed')
 router.post('/create',userController.create)
-
+router.post('/createSession',userController.createSession)
+router.post('/sign-out',userController.Signout)
 module.exports= router;
