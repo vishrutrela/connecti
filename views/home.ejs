@@ -5,9 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <%= title %></title>
+    <link rel="stylesheet" href="../assets/css/home.css ">
 </head>
 <body>
-    <h1>ConnectEye/ <%= title %> </h1>
+    <h1> <%= title %> </h1>
+
+    <section id="feed-post">
+        <h4>Posts</h4>
+        <%if(locals.user){%>
+        <form action="/posts/create" id="new-post-form" method="POST">
+            <textarea name="content" id="" cols="30" rows="3" placeholder="Type here.."></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <%}%>
+        <div id="posts-list-container">
+            <ul>
+                <%for(post of posts){%>
+                 <li>
+                    <%= post.content%>
+                 </li>
+                 <small>
+                    <%= post.user.name %>
+                 </small> 
+                 <%}%>   
+            </ul>
+        </div>
+    </section>
     
 </body>
 </html>

@@ -1,57 +1,68 @@
+const Post = require('../models/post');
 const User = require('../models/user');
-//profile page viewed after sign in
-module.exports.profile = (req, res) => {
-   return res.render('profile',{
-    title:'profile'
-   })
-  };
-  
-        
-        
-   
 
-//render the sign up page
-module.exports.Signup = (req,res)=>{
-    return res.render('users_Sign_up',{
-        title: 'Connecteye | Sign up'
-    })
-}
-//render the sign in PAGE
-module.exports.Signin = (req,res)=>{
-    return res.render('users_Sign_in',{
-        title: 'Connecteye | Sign in'
-    })
-}
+module.exports.profile = function(req, res){
+  return res.render('users_profile', {
+    title: 'User Profile'
+  });
+};
 
-//get the sign up data
-module.exports.create = (req, res) => {
-    const { password, confirm_password, text, email } = req.body;
-    console.log(req.body)
-    if (password != confirm_password) {
+// Render the sign up page
+module.exports.SignUp = function(req, res){
+  if(req.isAuthenticated()){
+    return res.redirect('/users/profile');
+  }
+  return res.render('users_Sign_up', {
+    title: "ConnectEye | Sign Up"
+  });
+};
+
+// Render the sign in page
+module.exports.SignIn = function(req, res){
+  if(req.isAuthenticated()){
+    return res.redirect('/users/profile');
+  }
+  return res.render('users_Sign_in', {
+    title: "ConnectEye | Sign In"
+  });
+};
+
+// Get the sign up data
+module.exports.create = function(req, res){
+  if (req.body.password != req.body.confirm_password){
+    return res.redirect('back');
+  }
+  console.log('cnosdicc')
+  User.findOne({email: req.body.email})
+    .then(user => {
+      if (!user){
+        return User.create(req.body);
+      } else {
+        return Promise.reject('User already exists');
+      }
+    })
+    .then(user => {
+      return res.redirect('/users/sign-in');
+    })
+    .catch(err => {
+      console.log('Error in signing up:', err);
       return res.redirect('back');
-    }
-  
-    User.findOne({email})
-      .then((user) => {
-        if (!user) {
-          return User.create(req.body)
-            .then((user) => {
-              return res.redirect('/users/sign-in');
-            })
-            .catch((err) => {
-              console.log('error in creating the user in signing up', err);
-              return res.redirect('back');
-            });
-        } else {
-          return res.redirect('back');
-        }
-      })
-      .catch((err) => {
-        console.log('error in finding the user in signing up', err);
-        return res.redirect('back');
-      });
-  };
-  
+    });
+};
 
-  //sign in
+// Sign in and create a session for the user
+module.exports.createSession = function(req, res){
+  console.log("fdgfgd");
+  return res.redirect('/');
  
+};
+
+
+
+module.exports.destroySession= function(req,res,next){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect("/");
+  });
+}
+
