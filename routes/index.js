@@ -7,7 +7,8 @@ console.log('routes worked')
 
 router.get('/',homeController.home);
 router.use('/users',require('./users'));
-router.use('/posts',require('./posts'))
+router.use('/posts',require('./posts'));
+router.use('/comments',require('./comments'));
 //for any other routes access from here
 
 module.exports= router;
