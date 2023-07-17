@@ -1,11 +1,41 @@
 const Post = require('../models/post');
 const User = require('../models/user');
 
-module.exports.profile = function(req, res){
-  return res.render('users_profile', {
-    title: 'User Profile'
-  });
+//controller to show all the users who logged in
+module.exports.profile = function (req, res) {
+  User.findById(req.params.id)
+    .exec()
+    .then(function (user) {
+      return res.render('users_profile', {
+        title: 'User Profile',
+        profile_user: user
+      });
+    })
+    .catch(function (err) {
+      console.log('Error in retrieving user:', err);
+      return res.redirect('back');
+    });
 };
+
+module.exports.update = function(req,res){
+  if(req.user.id==req.params.id){
+    User.findByIdAndUpdate(req.params.id,req.body)
+        .exec()
+        .then(function(user){
+          return res.redirect('back');
+        })
+        .catch(function (err) {
+          console.log('Error in updating user:', err);
+          return res.redirect('back');
+        });
+    } else {
+      return res.status(401).send('Unauthorized');
+    }
+       
+    
+  };
+
+
 
 // Render the sign up page
 module.exports.SignUp = function(req, res){

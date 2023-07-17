@@ -27,3 +27,25 @@ module.exports.create = async function(req, res) {
     res.status(500).send('Internal Server Error');
   }
 };
+//destroying a comment
+module.exports.destroy = function (req, res) {
+  Comment.findById(req.params.id)
+    .then(function (comment) {
+      if (comment.user == req.user.id) {
+        let postId = comment.post;
+
+        return comment.deleteOne().then(function () {
+          return Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+        });
+      } else {
+        throw new Error('Unauthorized access');
+      }
+    })
+    .then(function () {
+      return res.redirect('back');
+    })
+    .catch(function (err) {
+      console.log('error in deleting comment:', err);
+      return res.redirect('back');
+    });
+};

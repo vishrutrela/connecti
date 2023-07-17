@@ -1,6 +1,11 @@
 body{
     background-color: orange;
+    width: 100%;
 }
 h1{
     font-size: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+#feed-post{
+    border: 2px solid black
 }

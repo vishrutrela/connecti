@@ -1,44 +1,29 @@
 const Post = require('../models/post')
+const User = require('../models/user');
 
 
 
-
-module.exports.home = function(req, res){
-    // console.log(req.cookies);
-    res.cookie('user_id', 25);
-    // Post.find({})
-    // .then(posts => {
-    //   return res.render('home', {
-    //     title: "ConnectEye | Home",
-    //     posts: posts
-    //   });
-    // })
-    // .catch(err => {
-    //   console.log('Error in fetching posts:', err);
-    //   return res.redirect('back');
-    // });
-    //populate the user of each post
-    Post.find({})
+module.exports.home = function (req, res) {
+  Post.find({})
     .populate('user')
     .populate({
-        path: 'comments',
-        populate: {
-            path: 'user'
-        }
+      path: 'comments',
+      populate: {
+        path: 'user'
+      }
     })
     .exec()
-
-    .then(posts => {
-      return res.render('home', {
-        title: "ConnectEye | Home",
-        posts: posts
+    .then(function (posts) {
+      return User.find({}).then(function (users) {
+        return res.render('home', {
+          title: "ConnectEye | Home",
+          posts: posts,
+          all_users: users
+        });
       });
     })
-    .catch(err => {
-      console.log('Error in fetching posts:', err);
+    .catch(function (err) {
+      console.log('Error in retrieving posts or users:', err);
       return res.redirect('back');
     });
-} ;
-    
-
-
+};
