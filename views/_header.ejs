@@ -1,44 +1,10 @@
-<link rel="stylesheet" href="../assets/css/header.css">
 
-<!-- /*********************************/ -->
-<style>
-    body{
-        margin: 0;
-    }
-    .header {
-        background-color: #00bbff;
-        display: flex;
-        justify-content: space-between;
-        height: 3rem;
-        font-weight: bold;
-        color: white;
-        position: sticky;
-        top: 0;
-        
-    }
 
-    li a {
-        text-decoration: none;
-        font-weight: bold;
-        padding: 3px;
-        color: white;
-    }
-
-    .inout {
-        display: flex;
-
-    }
-
-    .heading {
-        font-size: 2rem;
-    }
-</style>
-<!-- /*********************************/ -->
 
 
 
 <header class="header">
-    <div class="heading">ConnectEye</div>
+    <div ><a class="heading"  href="/">ConnectEye</a></div>
     <ul style="list-style: none;">
         <% if(locals.user){ %>
             <div class="inout">
@@ -51,17 +17,17 @@
 
 
                 <li>
-                    <a href="/users/sign-out">Sign Out</a>
+                    <a href="/users/sign-out"> / Sign Out</a>
                 </li>
 
             </div>
-            <% }else{%>
+            <% }else{%> 
                 <div class="inout">
                     <li>
                         <a href="/users/sign-in">Sign In</a>
                     </li>
                     <li>
-                        <a href="/users/sign-up">Sign Up</a>
+                        <a href="/users/sign-up"> / Sign Up</a>
                     </li>
                 </div>
                 <%}%>

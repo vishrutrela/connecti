@@ -1,7 +1,7 @@
 //require the library
 const mongoose = require('mongoose');
 //connect mongoose to the database
-mongoose.connect('mongodb://127.0.0.1:27017/ConnectEye_dev');
+mongoose.connect('mongodb+srv://vishrutrela:IAMNITIAN@cluster0.idwtat0.mongodb.net/ConnectEye_dev?retryWrites=true&w=majority');
 //check the connection(to check it is successful)
 const db = mongoose.connection;
 //error

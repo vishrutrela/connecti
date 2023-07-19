@@ -10,7 +10,7 @@ module.exports.create = async function(req, res) {
         post: req.body.post,
         user: req.user._id
       });
-      console.log(comment);
+      
       await comment.save();
       if (!post.comments) {
         post.comments = []; // Initialize comments as an empty array if it's undefined
@@ -18,6 +18,7 @@ module.exports.create = async function(req, res) {
 
       post.comments.push(comment);
       await post.save();
+      req.flash('success','comment posted')
       res.redirect('/');
     } else {
       res.status(404).send('Post not found');
@@ -42,6 +43,7 @@ module.exports.destroy = function (req, res) {
       }
     })
     .then(function () {
+      req.flash('success','comment deleted')
       return res.redirect('back');
     })
     .catch(function (err) {

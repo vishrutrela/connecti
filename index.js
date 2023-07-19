@@ -15,6 +15,8 @@ const passportLocal = require('./config/passport-local-strategy');
 //     autoRemove: 'disabled'
 //   }); 
 //   const sassMiddleware = require('node-sass-middleware')//not installed yet/************/
+const flash = require('connect-flash');
+const customWare= require('./config/middleware');
 //   app.use(sassMiddleware({
 //     src: '/assets/scss',
 //     dest: '/assets/css',
@@ -28,7 +30,8 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 app.use(express.static('assets'));
-
+// make upload path available fo browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
 // app.set('layout extractStyles', true);
@@ -68,7 +71,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
-
+app.use(flash());
+app.use(customWare.setFlash);
 // use express router
 app.use('/', require('./routes'));
 

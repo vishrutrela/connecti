@@ -1,4 +1,35 @@
-
-.header{
-    background-color: aqua;
+body{
+    margin: 0;
+    
+    /* background-image: url(https://img.freepik.com/free-vector/blue-social-media-background_1017-7008.jpg) ; */
 }
+.header {
+   
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    font-weight: bold;
+    color:white;
+    position: sticky;
+    top: 0;
+    background-color: #1976d2;
+}
+
+li a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 3px;
+    color: white;
+}
+
+.inout {
+    display: flex;
+    color: white;
+}
+
+.heading {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+}
+

@@ -1,11 +1,23 @@
 body{
-    background-color: orange;
-    width: 100%;
+    margin:0px;
+    height: 100%;
+    /* background-color: aquamarine; */
 }
-h1{
-    font-size: 40px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+#heading-container{
+    display: flex;
+    height: 100%;
+
+    #feed-post{
+        width: 70%;
+        padding: 10px;
+    }
+
+
 }
-#feed-post{
-    border: 2px solid black
-}
+#users-friends{
+        width: 30%;
+        padding: 10px;
+        border-left: 1px solid lightgray;
+        height: 100%;
+        
+    }
