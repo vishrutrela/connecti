@@ -1,0 +1,66 @@
+body{
+    margin:0;
+    background:url(https://c4.wallpaperflare.com/wallpaper/780/341/142/anime-sharingan-red-eyes-naruto-shippuuden-wallpaper-preview.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+
+}
+.whole{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center ;
+    /* text-align: center; */
+    margin-block: 75px;
+
+}
+#container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 400px;
+    height: 462px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+    
+    
+}
+.signinemail{
+    display: block;
+    margin-inline: auto;
+    margin-block: 10px;
+    padding-right: 160px;
+    padding-block: 11px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+}
+.signinpassword{
+    display: block;
+    margin-inline: auto;
+    margin-block: 10px;
+    padding-right: 160px;
+    padding-block: 11px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+}
+.signinsubmit{
+    display: block;
+    font-weight: bolder;  
+    margin-top: 70px;
+    padding-block: 11px;
+    padding-inline: 25px;
+    margin-inline: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+}
+.signinsubmit:hover{
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: lightgray;
+}
+

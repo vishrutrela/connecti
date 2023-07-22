@@ -25,6 +25,11 @@ li a {
 .inout {
     display: flex;
     color: white;
+
+    
+}
+.inout li a{
+    color: white;
 }
 
 .heading {

@@ -3,6 +3,11 @@ const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
 
+module.exports.firstpage= function(req,res){
+  return res.render('firstpage');
+ }
+
+
 //controller to show all the users who logged in
 module.exports.profile = function (req, res) {
   User.findById(req.params.id)
@@ -59,8 +64,7 @@ module.exports.update = async function(req, res){
       return res.status(401).send('Unauthorized');
   }
 }
-
-
+ 
 
 // Render the sign up page
 module.exports.SignUp = function(req, res){

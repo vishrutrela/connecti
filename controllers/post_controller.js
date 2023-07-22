@@ -17,6 +17,18 @@ const Comment = require('../models/comment')
             message: 'Post created!'
           });
         }
+
+        if (req.xhr){
+          // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
+          post = post.populate('user', 'name').execPopulate();
+
+          return res.status(200).json({
+              data: {
+                  post: post
+              },
+              message: "Post created!"
+          });
+      }
   
         req.flash('success', 'Post published!');
         return res.redirect('back');

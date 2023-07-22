@@ -1,0 +1,46 @@
+body{
+    background: url(https://www.superiorwallpapers.com/images/lthumbs/2016-08/11975_Wonderful-blue-cat-eye-HD-dark-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.container{
+    width: 400px;
+    height: 600px;
+    border: 2px solid white;
+    display: flex;
+    margin-block: 50px;
+    margin-inline: 95px;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.signupname,.signupmail,.signuppassword,.signupconfirm{
+    display: block;
+    margin-inline: auto;
+    margin-block: 10px;
+    padding-right: 160px;
+    padding-block: 11px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+}
+.signupsubmit{
+    display: block;
+    font-weight: bolder;  
+    margin-top: 50px;
+    padding-block: 11px;
+    padding-inline: 25px;
+    margin-inline: 2px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+}
+.signupsubmit:hover{
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: lightgray;
+}
