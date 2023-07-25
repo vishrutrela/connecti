@@ -3,9 +3,6 @@ const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
 
-module.exports.firstpage= function(req,res){
-  return res.render('firstpage');
- }
 
 
 //controller to show all the users who logged in
@@ -85,6 +82,26 @@ module.exports.SignIn = function(req, res){
     title: "ConnectEye | Sign In"
   });
 };
+
+module.exports.firstpage= function(req,res){
+  if(req.isAuthenticated()){
+    return res.redirect('/users/firstpage');
+  }
+  return res.redire
+
+}
+module.exports.firstpage = function (req, res) {
+  User.findById(req.params.id)
+    .exec()
+    .then(function (user) {
+      return res.render('users_firstpage');
+    })
+    .catch(function (err) {
+      console.log('Error in retrieving user:', err);
+      return res.redirect('back');
+    });
+};
+
 
 // Get the sign up data
 module.exports.create = function(req, res){

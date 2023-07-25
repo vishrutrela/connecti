@@ -1,6 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment')
-
+const postsMailer = require('../mailers/posts_mailer')
   
 
   module.exports.create = function(req, res) {
@@ -17,10 +17,11 @@ const Comment = require('../models/comment')
             message: 'Post created!'
           });
         }
-
+         post = post.populate('user', 'name email').execPopulate();
+        postsMailer.newpost(post);
         if (req.xhr){
           // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
-          post = post.populate('user', 'name').execPopulate();
+          
 
           return res.status(200).json({
               data: {

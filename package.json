@@ -1,6 +1,7 @@
 {
   "name": "connecteye",
   "version": "1.0.0",
+  
   "description": "My social media web application",
   "main": "index.js",
   "scripts": {
@@ -22,6 +23,7 @@
     "express-session": "^1.17.3",
     "mongoose": "^7.1.1",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   }

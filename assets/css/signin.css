@@ -4,7 +4,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 
 }
 .whole{
@@ -50,7 +50,7 @@ body{
 .signinsubmit{
     display: block;
     font-weight: bolder;  
-    margin-top: 70px;
+    margin-top: 60px;
     padding-block: 11px;
     padding-inline: 25px;
     margin-inline: 20px;
@@ -62,5 +62,11 @@ body{
     cursor: pointer;
     border-radius: 8px;
     background-color: lightgray;
+}
+.newuser{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    padding-left: 20px;
 }
 

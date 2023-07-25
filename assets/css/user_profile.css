@@ -1,5 +1,6 @@
  body{
-   background-color: aliceblue;
+   background-color: rgb(2, 13, 23);
+   overflow: hidden;
 }
 .pic{
     display: flex;
@@ -34,3 +35,32 @@ position: relative;
     background-color: transparent;
 }
  
+/****************** side navbar***************/
+#side-navbar{
+    width: 30%;
+    padding: 10px;
+    /* border: 2px solid white; */
+    /* height: 100%; */
+    color: white;
+    
+}
+.font-icon{
+    border-right: 2px solid white;
+    height: 100%;
+    /* width: 20%; */
+    position: fixed;
+    margin-top: 100px;
+    padding: 30px;
+}
+
+#home-icon, #profile-icon , #logout-icon{
+    
+    padding: 20px;
+    margin: 20px;
+    font-size: 25px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-inline: 10px;
+}
+

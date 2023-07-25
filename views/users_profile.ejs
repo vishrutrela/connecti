@@ -1,6 +1,31 @@
 
     <title> <%= title %></title>
     <link rel="stylesheet" href="/CSS/user_profile.css">
+
+    <section id="side-navbar">
+        <div class="font-icon">
+            <div id="home-icon">
+                <a style="text-decoration: none;color: white;"  href="/"><i class="fa-solid fa-home"></i>
+                    Home</a>
+                
+            </div>
+            <div id="profile-icon">
+                <a style="text-decoration: none;color: white;"  href="/users/profile>"><i class="fa-solid fa-user"></i>
+                    Profile</a>
+            </div>
+            
+            <div id="logout-icon">
+                <a style="text-decoration: none;color: white;" href="/users/sign-out"><i class="fa-solid fa-right-to-bracket"></i>
+                    Sign out</a>
+                
+            </div>
+
+        </div>
+
+
+
+
+    </section>
     <div class="pic"><img  id="profile-picture" src="<%=user.avatar %>" alt="<%= user.name%>" width="100"></div>
      
     
@@ -22,8 +47,9 @@
         
     <%}else{%>     
         <!-- else show only the profile info -->
-        <p><%= profile_user.name %></p>
-        <p><%= profile_user.email %></p>
-    <%} %>
+        <p style="color: white;"><%= profile_user.name %></p>
+        <p style="color: white;"><%= profile_user.email %></p>
+        <%} %>
 
-    
+        
+        <script src="https://kit.fontawesome.com/e81ca0415f.js" crossorigin="anonymous"></script>
