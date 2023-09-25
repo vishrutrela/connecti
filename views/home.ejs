@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>
         <%= title %>
     </title>
@@ -104,9 +105,9 @@
                                                         <ul id="post-comments-<%= post._id %>">
                                                             <% if (post.comments && post.comments.length> 0) { %>
                                                                 <% for (let comment of post.comments) { %>
-                                                                    <li>
+                                                                    <li id="commentlist">
                                                                         <p>
-                                                                            <%= comment.content %>
+                                                                            <p style="font-size: 20px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-block: 0px;"><%= comment.content %></p>
                                                                                 <% if (locals.user &&
                                                                                     locals.user.id==comment.user.id){ %>
                                                                                     <small>

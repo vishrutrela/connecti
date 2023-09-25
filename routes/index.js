@@ -12,6 +12,7 @@ router.get('/',passport.checkAuthentication,homeController.home);
 router.use('/users',require('./users'));
 router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'));
+
 //for any other routes access from here
 
 router.use('/api',require('./api'));

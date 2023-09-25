@@ -6,19 +6,30 @@ const path = require('path');
 
 
 //controller to show all the users who logged in
-module.exports.profile = function (req, res) {
-  User.findById(req.params.id)
-    .exec()
-    .then(function (user) {
-      return res.render('users_profile', {
-        title: 'User Profile',
-        profile_user: user
-      });
-    })
-    .catch(function (err) {
-      console.log('Error in retrieving user:', err);
-      return res.redirect('back');
+module.exports.profile = async function (req, res) {
+  try {
+    let user = await User.findById(req.params.id);
+
+    // Fetch posts belonging to the user whose profile is being viewed
+    let posts = await Post.find({ user: req.params.id })
+      .populate('user')
+      .populate({
+        path: 'comments',
+        populate: {
+          path: 'user',
+        },
+      })
+      .exec();
+
+    return res.render('users_profile', {
+      title: 'User Profile',
+      profile_user: user,
+      posts: posts, // Pass the fetched posts to the view
     });
+  } catch (err) {
+    console.log('Error in retrieving user:', err);
+    return res.redirect('back');
+  }
 };
 //update profile 
 module.exports.update = async function(req, res){
@@ -83,24 +94,10 @@ module.exports.SignIn = function(req, res){
   });
 };
 
-module.exports.firstpage= function(req,res){
-  if(req.isAuthenticated()){
-    return res.redirect('/users/firstpage');
-  }
-  return res.redire
 
-}
-module.exports.firstpage = function (req, res) {
-  User.findById(req.params.id)
-    .exec()
-    .then(function (user) {
-      return res.render('users_firstpage');
-    })
-    .catch(function (err) {
-      console.log('Error in retrieving user:', err);
-      return res.redirect('back');
-    });
-};
+
+
+
 
 
 // Get the sign up data

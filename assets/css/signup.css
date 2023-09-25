@@ -15,7 +15,7 @@ body{
     border: 2px solid white;
     box-shadow: 0em 0em 1em 0em white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    border-radius: 15px;
 }
 .signupname,.signupmail,.signuppassword,.signupconfirm{
     display: block;

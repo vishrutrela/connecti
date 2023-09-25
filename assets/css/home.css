@@ -73,6 +73,9 @@ body{
     cursor: pointer;
     background-color: lightgray;
 }
+#commentlist{
+    list-style: none;
+}
 
 /***************freinds list**********************/
 

@@ -1,3 +1,4 @@
+const favicon = require('serve-favicon');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -8,23 +9,10 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-// const MongoStore = require('connect-mongo')(session);
-// const mongoStoreInstance = new MongoStore({
-//     /* Configuration options */
-//     mongooseConnection: mongoose.connection,
-//     autoRemove: 'disabled'
-//   }); 
-//   const sassMiddleware = require('node-sass-middleware')//not installed yet/************/
+
 const flash = require('connect-flash');
 const customWare= require('./config/middleware');
-//   app.use(sassMiddleware({
-//     src: '/assets/scss',
-//     dest: '/assets/css',
-//     debug: true,
-//     outputStyle:'extended',
-//     prefix: '/css'
-//   }))
-// const sassmiddleware=  require('node-sass')**********************************************************
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());
@@ -54,17 +42,12 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 100),
-    // store:  mongoStoreInstance   
+     
 
     },
     
 
-    // store: new MongoStore(
-        
-    //     function(err){
-    //         console.log(err ||  'connect-mongodb setup ok');
-    //     }
-    // )
+    
 }));
 console.log('session acquired');
 app.use(passport.initialize());

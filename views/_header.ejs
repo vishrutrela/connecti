@@ -1,38 +1,44 @@
-
-
-
-
-
-<header class="header">
-    <div ><a class="heading"  href="/"><i class="fa-solid fa-eye-low-vision fa-fade"></i>
-        ConnectEye
-      
-      </a></div>
-    <ul style="list-style: none;">
-        <% if(locals.user){ %>
-            <div class="inout">
-
-                <li>
-                    <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/profile/<%= u.id %>">
-                        <%= user.name %>
-                    </a>
-                </li>
-
-
-                <li>
-                    <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/sign-out"> / Sign Out</a>
-                </li>
-
-            </div>
-            <% }else{%> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+</head>
+<body>
+    <header class="header">
+        <div ><a class="heading"  href="/"><i class="fa-solid fa-eye-low-vision fa-fade"></i>
+            ConnectEye
+          
+          </a></div>
+        <ul style="list-style: none;">
+            <% if(locals.user){ %>
                 <div class="inout">
+    
+                    
+    
+    
                     <li>
-                        <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/sign-in">Sign In</a>
+                        <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/sign-out">  Sign Out</a>
                     </li>
-                    <li>
-                        <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/sign-up"> / Sign Up</a>
-                    </li>
+    
                 </div>
-                <%}%>
-    </ul>
-</header>
+                <% }else{%> 
+                    <div class="inout">
+                        <li>
+                            <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/sign-in">Sign In</a>
+                        </li>
+                        <li>
+                            <a style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/users/sign-up"> / Sign Up</a>
+                        </li>
+                    </div>
+                    <%}%>
+        </ul>
+    </header>
+</body>
+</html>
+
+
+
+

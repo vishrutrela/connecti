@@ -10,7 +10,8 @@ body{
     /* height: 3rem; */
     font-weight: bold;
     color:white;
-   position: fixed;
+   position: sticky;
+   top: 0;
    width: 100%;
     background-color: transparent;
 }

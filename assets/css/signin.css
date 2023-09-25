@@ -4,7 +4,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
 
 }
 .whole{
@@ -22,7 +22,7 @@ body{
     height: 462px;
     border: 2px solid white;
     box-shadow: 0em 0em 1em 0em white;
-    
+    border-radius: 15px;
     
 }
 .signinemail{

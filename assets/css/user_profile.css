@@ -1,51 +1,24 @@
  body{
-   background-color: rgb(2, 13, 23);
-   overflow: hidden;
-}
-.pic{
-    display: flex;
-    justify-content: center;
-}
-#profile-picture{
-    width: 200;
-    height: 200px;
-    border-radius: 50%;
-    margin-top: 20px;
-}
-.editprofile{
-    display: flex;
-flex-direction: column;
-width: 480px;
-
-position: relative;
-    bottom: 200px;
-    left: 313px;
-
-}
-.editprofile div{
-    padding: 10px;
-}
-
-.xyz{
-    padding: 15px;
-    width: 260px;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    height: 32px;
-    background-color: transparent;
-}
- 
-/****************** side navbar***************/
-#side-navbar{
-    width: 30%;
-    padding: 10px;
-    /* border: 2px solid white; */
-    /* height: 100%; */
-    color: white;
+   background: url(https://c4.wallpaperflare.com/wallpaper/229/361/142/lion-simple-background-minimalism-monochrome-wallpaper-preview.jpg);
+   /* overflow: hidden; */
+   background-repeat: repeat-x;
+    background-size: cover;
     
+    height: 100%;
+
 }
-.font-icon{
+
+/*888888888888888888888888888888888*/
+.profile-side{
+    width: 20%;
     border-right: 2px solid white;
+    height: 100vh;
+}
+
+
+
+.font-icon{
+    /* border: 2px solid white; */
     height: 100%;
     /* width: 20%; */
     position: fixed;
@@ -63,4 +36,107 @@ position: relative;
     font-weight: bold;
     padding-inline: 10px;
 }
+/********************************************/
 
+.pic{
+    display: flex;
+    justify-content: center;
+}
+#profile-picture{
+    width: 200;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+    box-shadow: 0em 0em 1em 0em white;
+    position: relative;
+    left: 200%;
+    top: -35vh;
+}
+.edit-head{
+    color: white;
+     font-family: 'Caveat', cursive;
+    text-shadow: 2px 2px 4px white;
+    position:absolute;
+    top: 22px;
+    right: 315px;
+    text-decoration: underline;
+}
+.editprofile{
+    display: flex;
+    width: 480px;
+    position:absolute;
+    top: 80px;
+    right: 22px;
+}
+.editprofile div{
+    padding: 10px;
+}
+
+.xyz{
+    padding: 15px;
+    width: 260px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    height: 32px;
+    
+}
+.profilename,.profileemail, .profilefile{
+   color: white;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.xyz{
+    display: block;
+    margin-inline: auto;
+    margin-block: 10px;
+    padding-right: 95px;
+    padding-block: 11px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0em 0em 1em 0em white;
+    background-color: white;
+}
+
+/******************description************************/
+.about{
+    width: 440px;
+    height: 200px;
+    border: 2px solid white;
+    position: relative;
+    /* right: -24px; */
+    left: 60vh;
+    bottom: 25vh;
+    border-radius: 10px;
+    /* border: 2px solid white; */
+    background-color: transparent;
+    box-shadow: 0em 0em 1em 0.5em white;
+    
+
+    color: white;
+     font-family: 'Caveat', cursive;
+    /* text-shadow: 2px 2px 4px white; */
+}
+/*******************************/
+#posts-list-container{
+    width: 400px;
+    /* border: 2px solid pink; */
+    color: white;
+    display: flex;
+    position: relative;
+    left: 100%;
+    text-align: center;
+    justify-content: center;
+    
+}
+#postcontent{
+    font-size: 40px;
+    font-family: 'Caveat', cursive;
+}
+
+.proposts{
+    border: 1px solid white;
+    width:400px;height:auto;
+    margin-block: 10px; 
+    box-shadow: 0em 0em 1em 0em white;
+    border-radius: 10px;
+}
