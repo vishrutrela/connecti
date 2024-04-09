@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    
+    /* background-image: url(https://img.freepik.com/free-vector/blue-social-media-background_1017-7008.jpg) ; */
+}
+.header {
+   
+    display: flex;
+    justify-content: space-between;
+    /* height: 3rem; */
+    font-weight: bold;
+    color:white;
+   position: sticky;
+   top: 0;
+   width: 100%;
+    background-color: transparent;
+}
+
+li a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 3px;
+    color: white;
+}
+
+.inout {
+    display: flex;
+    color: white;
+
+    
+}
+.inout li a{
+    color: white;
+}
+
+.heading {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 50px;
+    padding-top: 30px;
+}
+
