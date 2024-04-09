@@ -1,46 +1,36 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment')
-const postsMailer = require('../mailers/posts_mailer')
+
   
 
-  module.exports.create = function(req, res) {
-    Post.create({
+module.exports.create = function(req, res) {
+  Post.create({
       content: req.body.content,
       user: req.user._id
-    })
-      .then(function(post) {
-        if (req.xhr) {
-          return res.status(200).json({
-            data: {
-              post: post
-            },
-            message: 'Post created!'
-          });
-        }
-         
-        postsMailer.newpost(post);
-        if (req.xhr){
-          // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
-          post = post.populate('user', 'name email').execPopulate(); 
-
+  })
+  .then(function(post) {
+      if (req.xhr) {
+          // If it's an AJAX request
           return res.status(200).json({
               data: {
                   post: post
               },
-              message: "Post created!"
+              message: 'Post created!'
           });
+      } else {
+          // If it's not an AJAX request
+         
+          req.flash('success', 'Post published!');
+          return res.redirect('back');
       }
-  
-        req.flash('success', 'Post published!');
-        return res.redirect('back');
-      })
-      .catch(function(err) {
-        req.flash('error', err);
-        return res.redirect('back');
-      });
-  };
+  })
+  .catch(function(err) {
+      req.flash('error', err);
+      return res.redirect('back');
+  });
+};
 console.log('postcontroller worked');
- 
+
 
 //deleting the post
 module.exports.destroy = function(req, res) {

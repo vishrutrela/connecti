@@ -1,82 +1,93 @@
+<title>
+  <%= title %>
+</title>
+<link rel="stylesheet" href="../assets/CSS/user_profile.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+</style>
 
-    <title> <%= title %></title>
-    <link rel="stylesheet" href="/CSS/user_profile.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-    </style>
-  
-   <div class="cont">
-    <div class="profile-side">
-        <div id="home-icon">
-            <a style="text-decoration: none;color: white;"  href="/"><i class="fa-solid fa-home"></i>
-                Home</a>
-            
-        </div>
-        <div id="profile-icon">
-            <a style="text-decoration: none;color: white;"  href="/users/profile/<%= u.id %>"><i class="fa-solid fa-user"></i>
-                Profile</a>
-        </div>
-        
-        <div id="logout-icon">
-            <a style="text-decoration: none;color: white;" href="/users/sign-out"><i class="fa-solid fa-right-to-bracket"></i>
-                Sign out</a>
+<div class="cont">
+  <div class="profile-side">
+    <div id="home-icon">
+      <a style="text-decoration: none;color: white;" href="/"><i class="fa-solid fa-home"></i>
+        Home</a>
+
+    </div>
+    <div id="profile-icon">
+      <a style="text-decoration: none;color: white;" href="/users/profile/<%= u.id %>"><i class="fa-solid fa-user"></i>
+        Profile</a>
+    </div>
+
+    <div id="logout-icon">
+      <a style="text-decoration: none;color: white;" href="/users/sign-out"><i class="fa-solid fa-right-to-bracket"></i>
+        Sign out</a>
     </div>
     <div class="profile-updation">
-      <div class="pic"><img  id="profile-picture" src="<%=user.avatar %>" alt="<%= user.name%>" width="100">
+      <div class="pic"><img id="profile-picture" src="<%=user.avatar %>" alt="<%= user.name%>" width="100">
         <div id="posts-list-container">
-            <h1 style="text-decoration: underline; font-family:'Caveat', cursive; margin-inline-start: 20px;">Posts</h1>
-            <ul>
-              <% for (let post of posts) { %>
+          <h1 style="text-decoration: underline; font-family:'Caveat', cursive; margin-inline-start: 20px;">Posts</h1>
+          <ul>
+            <% for (let post of posts) { %>
               <li class="proposts" id="post-<%= post._id %>">
                 <p>
-                  <div id="postcontent">
-                    <%= post.content %>
-                  </div>
-                  <div>
-                    
-          
-                    <% if (locals.user && locals.user.id == post.user.id) { %>
-                    <a class="delete-post-button" href="/posts/destroy/<%= post._id %>"><i class="fa-solid fa-trash"></i></a>
-                    <% } %>
-                  </div>
-                </p>
-                
-              </li>
-              
-              <% } %>
-              
-            </ul>
-          </div>  
-    </div>
-     
-     
-     <% if(user.id == profile_user.id){ %>
-         <!-- if user matches then show the form -->
-         <div><h1 class="edit-head">Edit Profile</h1></div>
-          
-        <div class="editprofile">
-         
-         <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
-             <div class="profilename"><p>Username*</p> <input class="xyz" type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
-             </div>
-             <div class="profileemail"><p>Email.Id*</p><input class="xyz" type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
-             </div>
-             <div class="profilefile"><p>Change profile photo</p><input type="file" name="avatar" placeholder="profile picture">
-             </div>
-             <div class="profilesubmit"><input type="submit"  value="Update">
-             </div>
-         </form>
-         
-        </div>
-        
-   
-   </div>
-        
-   </div>
-   
-  
-   
-    <%}%>
+                <div id="postcontent">
+                  <%= post.content %>
+                </div>
+                <div>
 
-        
-        <script src="https://kit.fontawesome.com/e81ca0415f.js" crossorigin="anonymous"></script>
+
+                  <% if (locals.user && locals.user.id==post.user.id) { %>
+                    <a class="delete-post-button" href="/posts/destroy/<%= post._id %>"><i
+                        class="fa-solid fa-trash"></i></a>
+                    <% } %>
+                </div>
+                </p>
+
+              </li>
+
+              <% } %>
+
+          </ul>
+        </div>
+      </div>
+
+
+      <% if(user.id==profile_user.id){ %>
+        <!-- if user matches then show the form -->
+        <div>
+          <h1 class="edit-head">Edit Profile</h1>
+        </div>
+
+        <div class="editprofile">
+
+          <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
+            <div class="profilename">
+              <p>Username*</p> <input class="xyz" type="text" name="name" placeholder="Your Name"
+                value="<%= profile_user.name %>" required>
+            </div>
+            <div class="profileemail">
+              <p>Email.Id*</p><input class="xyz" type="email" name="email" placeholder="Your Email"
+                value="<%= profile_user.email %>" required>
+            </div>
+            <div class="profilefile">
+              <p>Change profile photo</p><input type="file" name="avatar" placeholder="profile picture">
+            </div>
+            <div class="profilesubmit"><input type="submit" value="Update">
+            </div>
+          </form>
+
+        </div>
+
+
+    </div>
+
+  </div>
+
+
+
+  <%}%>
+
+
+    <script src="https://kit.fontawesome.com/e81ca0415f.js" crossorigin="anonymous"></script>
+
+</div>

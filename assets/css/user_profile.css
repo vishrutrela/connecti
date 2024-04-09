@@ -1,8 +1,9 @@
  body{
-   background: url(https://c4.wallpaperflare.com/wallpaper/229/361/142/lion-simple-background-minimalism-monochrome-wallpaper-preview.jpg);
+   /* background: url(https://c4.wallpaperflare.com/wallpaper/229/361/142/lion-simple-background-minimalism-monochrome-wallpaper-preview.jpg); */
    /* overflow: hidden; */
    background-repeat: repeat-x;
     background-size: cover;
+    background-color: black;
     
     height: 100%;
 
